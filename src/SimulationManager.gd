@@ -29,11 +29,15 @@ var started : bool = false
 
 var friction : float = 0.6
 var repulse_close_particles : bool = true
+var simulation_speed : float = 1.0
 
 func _ready():
 	randomize()
 	
 	new_rules()
+
+func _process(delta):
+	Engine.time_scale = simulation_speed
 
 func new_rules() -> void:
 	rules.clear()

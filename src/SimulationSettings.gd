@@ -3,12 +3,14 @@ extends CanvasLayer
 onready var rules_list : VBoxContainer = $UI/ScrollContainer/VBoxContainer/RulesList
 
 onready var friction_slider : HSlider = $UI/ScrollContainer/VBoxContainer/Friction/HSlider
+onready var simulation_speed_slider : HSlider = $UI/ScrollContainer/VBoxContainer/SimulationSpeed/HSlider
 onready var repulse_close_particles_checkbox : CheckBox = $UI/ScrollContainer/VBoxContainer/RepulseCloseParticles
 
 onready var rule_setting : PackedScene = preload("res://src/RuleSetting.tscn")
 
 func _ready():
 	friction_slider.value = SimulationManager.friction
+	simulation_speed_slider.value = SimulationManager.simulation_speed
 	repulse_close_particles_checkbox.pressed = SimulationManager.repulse_close_particles
 	
 	for i in SimulationManager.rules:
@@ -30,3 +32,7 @@ func _on_HSlider_value_changed(value):
 
 func _on_RepulseCloseParticles_pressed():
 	SimulationManager.repulse_close_particles = repulse_close_particles_checkbox.pressed
+
+
+func _on_SimulationSpeed_HSlider_value_changed(value):
+	SimulationManager.simulation_speed = value

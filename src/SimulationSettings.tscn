@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer"]
 margin_right = 289.0
-margin_bottom = 116.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 
 [node name="Rules" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
@@ -73,13 +73,37 @@ max_value = 0.95
 step = 0.0
 value = 0.6
 
-[node name="RepulseCloseParticles" type="CheckBox" parent="UI/ScrollContainer/VBoxContainer"]
+[node name="SimulationSpeed" type="HBoxContainer" parent="UI/ScrollContainer/VBoxContainer"]
 margin_top = 92.0
 margin_right = 289.0
-margin_bottom = 116.0
+margin_bottom = 108.0
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/SimulationSpeed"]
+margin_top = 1.0
+margin_right = 142.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Simulation Speed"
+
+[node name="HSlider" type="HSlider" parent="UI/ScrollContainer/VBoxContainer/SimulationSpeed"]
+margin_left = 146.0
+margin_right = 289.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 8.0
+step = 0.0
+value = 1.0
+
+[node name="RepulseCloseParticles" type="CheckBox" parent="UI/ScrollContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 289.0
+margin_bottom = 136.0
 pressed = true
 text = "Repulse Close Particles"
 
 [connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/Randomize" to="." method="_on_Rules_Randomize_pressed"]
 [connection signal="value_changed" from="UI/ScrollContainer/VBoxContainer/Friction/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="UI/ScrollContainer/VBoxContainer/SimulationSpeed/HSlider" to="." method="_on_SimulationSpeed_HSlider_value_changed"]
 [connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/RepulseCloseParticles" to="." method="_on_RepulseCloseParticles_pressed"]
