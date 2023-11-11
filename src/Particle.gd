@@ -13,8 +13,8 @@ func _ready():
 	var rand_angle : float = rand_range(-180.0, 180.0)
 
 func _process(delta):
-	if abs(position.x) > 500 or abs(position.y) > 500:
-		velocity = velocity.linear_interpolate(position.normalized() * -100, 0.5)
+#	if abs(position.x) > 500 or abs(position.y) > 500:
+#		velocity = velocity.linear_interpolate(position.normalized() * -100, 0.5)
 	
 	if SimulationManager.started:
 		modulate = SimulationManager.colors[type % SimulationManager.colors.size()]

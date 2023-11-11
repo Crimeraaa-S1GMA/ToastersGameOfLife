@@ -16,8 +16,8 @@ func _ready():
 	var rand_angle : float = rand_range(-180.0, 180.0)
 
 func _process(delta):
-	if abs(translation.x) > 500 or abs(translation.y) > 500 or abs(translation.z) > 500:
-		velocity = velocity.linear_interpolate(translation.normalized() * -100, 0.5)
+#	if abs(translation.x) > 500 or abs(translation.y) > 500 or abs(translation.z) > 500:
+#		velocity = velocity.linear_interpolate(translation.normalized() * -100, 0.5)
 	
 	if SimulationManager.started:
 		translate(velocity * delta)

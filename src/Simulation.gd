@@ -20,6 +20,7 @@ func _ready():
 			if i % 100 == 0: yield(get_tree(), "idle_frame")
 	
 	SimulationManager.started = true
+	Engine.time_scale = 10.0
 
 func _process(delta):
 #	var particle_ins = particle.instance()
