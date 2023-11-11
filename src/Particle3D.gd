@@ -26,7 +26,7 @@ func _process(delta):
 			if i.get_parent() != self:
 				velocity += get_force(i.translation, i.type)
 		
-		velocity *= 0.6
+		velocity *= SimulationManager.friction
 
 func get_force(to : Vector3, foreign_type : int) -> Vector3:
 	var direction : Vector3 = (to - translation).normalized()
@@ -35,7 +35,8 @@ func get_force(to : Vector3, foreign_type : int) -> Vector3:
 	
 	var force : float = 0
 	
-	force += min(((distance * 1.5) - 25), 0)
+	if SimulationManager.repulse_close_particles:
+		force += min(((distance * 1.5) - 25), 0)
 	
 	force += max((abs(distance - 30) * -1) + 17, 0) * SimulationManager.rules[type][foreign_type]
 	

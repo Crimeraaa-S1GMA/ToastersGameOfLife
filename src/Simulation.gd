@@ -20,7 +20,6 @@ func _ready():
 			if i % 100 == 0: yield(get_tree(), "idle_frame")
 	
 	SimulationManager.started = true
-	Engine.time_scale = 10.0
 
 func _process(delta):
 #	var particle_ins = particle.instance()
@@ -56,8 +55,8 @@ func _process(delta):
 	if Input.is_action_pressed("pause"):
 		pause = true
 	
-	if Input.is_action_pressed("click"):
-		pause = true
+	if Input.is_action_pressed("click") and not get_tree().is_input_handled():
+		get_tree().set_input_as_handled()
 		var particle_ins_draw = particle.instance()
 		
 		particle_ins_draw.type = (randi() % SimulationManager.particle_types) if brush_type == 10 else brush_type

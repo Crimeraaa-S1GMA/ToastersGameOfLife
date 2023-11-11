@@ -1,5 +1,7 @@
 extends Node2D
 
+signal on_rule_update()
+
 var rules : Dictionary = {
 	
 }
@@ -25,6 +27,9 @@ export var materials : Array = [
 
 var started : bool = false
 
+var friction : float = 0.6
+var repulse_close_particles : bool = true
+
 func _ready():
 	randomize()
 	
@@ -39,3 +44,5 @@ func new_rules() -> void:
 	for rule_1 in range(particle_types):
 		for rule_2 in range(particle_types):
 			rules[rule_1][rule_2] = rand_range(-3.0, -1.0) if rule_1 == rule_2 else rand_range(-10.0, 10.0)
+	
+	emit_signal("on_rule_update")

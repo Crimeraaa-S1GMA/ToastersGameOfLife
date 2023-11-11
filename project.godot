@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SimulationManager="*res://src/SimulationManager.tscn"
+SimulationSettings="*res://src/SimulationSettings.tscn"
 
 [display]
 
@@ -149,5 +150,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

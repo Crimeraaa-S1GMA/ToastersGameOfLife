@@ -1,13 +1,6 @@
 extends Camera2D
 
-var speed : float = 50.0
+var speed : float = 500.0
 
 func _process(delta):
-	if Input.is_action_pressed("ui_right"):
-		translate(Vector2.RIGHT * speed * delta)
-	if Input.is_action_pressed("ui_left"):
-		translate(Vector2.LEFT * speed * delta)
-	if Input.is_action_pressed("ui_up"):
-		translate(Vector2.UP * speed * delta)
-	if Input.is_action_pressed("ui_down"):
-		translate(Vector2.DOWN * speed * delta)
+	translate(Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * speed * delta)
