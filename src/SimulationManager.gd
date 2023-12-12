@@ -27,6 +27,7 @@ export var materials : Array = [
 
 var started : bool = false
 
+var attraction_range : float = 2
 var friction : float = 0.6
 var repulse_close_particles : bool = true
 var simulation_speed : float = 1.0

@@ -7,12 +7,12 @@ onready var particle : PackedScene = preload("res://src/Particle3D.tscn")
 var brush_type : int = 0
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	randomize()
 	
 	for i in range(SimulationManager.particle_types):
-		for j in range(500 / SimulationManager.particle_types):
+		for j in range(1000 / SimulationManager.particle_types):
 			var particle_ins = particle.instance()
 
 			particle_ins.type = i

@@ -8,9 +8,9 @@ var brush_type : int = 0
 
 func _ready():
 	randomize()
-	
+
 	for i in range(SimulationManager.particle_types):
-		for j in range(500 / SimulationManager.particle_types):
+		for j in range(100 / SimulationManager.particle_types):
 			var particle_ins = particle.instance()
 
 			particle_ins.type = i
@@ -18,7 +18,7 @@ func _ready():
 			particles.add_child(particle_ins)
 			particle_ins.position = Vector2(rand_range(-100.0, 100.0), rand_range(-100.0, 100.0))
 			if i % 100 == 0: yield(get_tree(), "idle_frame")
-	
+
 	SimulationManager.started = true
 
 func _process(delta):
@@ -26,9 +26,9 @@ func _process(delta):
 #	particle_ins.type = 1
 #
 #	particles.add_child(particle_ins)
-	
+
 	var pause : bool = false
-	
+
 	if Input.is_action_just_pressed("1"):
 		brush_type = 0
 	if Input.is_action_just_pressed("2"):
@@ -51,18 +51,18 @@ func _process(delta):
 		brush_type = 9
 	if Input.is_action_just_pressed("random"):
 		brush_type = 10
-	
+
 	if Input.is_action_pressed("pause"):
 		pause = true
-	
+
 	if Input.is_action_pressed("click") and not get_tree().is_input_handled():
 		get_tree().set_input_as_handled()
 		var particle_ins_draw = particle.instance()
-		
+
 		particle_ins_draw.type = (randi() % SimulationManager.particle_types) if brush_type == 10 else brush_type
-		
+
 		particles.add_child(particle_ins_draw)
 		particle_ins_draw.position = get_global_mouse_position()
-	
+
 	get_tree().paused = pause
 

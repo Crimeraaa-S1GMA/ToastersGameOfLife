@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/mjaaa/Documents/GitHub/ToastersGameOfLife/Toaster's Game Of Life.csproj": {}
+  },
+  "projects": {
+    "/Users/mjaaa/Documents/GitHub/ToastersGameOfLife/Toaster's Game Of Life.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mjaaa/Documents/GitHub/ToastersGameOfLife/Toaster's Game Of Life.csproj",
+        "projectName": "Toaster's Game Of Life",
+        "projectPath": "/Users/mjaaa/Documents/GitHub/ToastersGameOfLife/Toaster's Game Of Life.csproj",
+        "packagesPath": "/Users/mjaaa/.nuget/packages/",
+        "outputPath": "/Users/mjaaa/Documents/GitHub/ToastersGameOfLife/.mono/temp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mjaaa/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

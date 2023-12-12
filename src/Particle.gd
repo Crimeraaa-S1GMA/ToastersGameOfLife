@@ -9,8 +9,6 @@ var type : int = 0
 
 func _ready():
 	randomize()
-	
-	var rand_angle : float = rand_range(-180.0, 180.0)
 
 func _process(delta):
 #	if abs(position.x) > 500 or abs(position.y) > 500:
@@ -35,8 +33,10 @@ func get_force(to : Vector2, foreign_type : int) -> Vector2:
 	var force : float = 0
 	
 	if SimulationManager.repulse_close_particles:
-		force += min(((distance * 1.5) - 10), 0)
+		force += min((((distance * distance) * 1.5) - 10) * 3, 0)
 	
-	force += max((abs(distance - 30) * -1) + 15, 0) * SimulationManager.rules[type][foreign_type]
+	var attraction : float = max((abs(distance - (50 * SimulationManager.attraction_range)) * (-0.5 / SimulationManager.attraction_range)) + 15, 0) * SimulationManager.rules[type][foreign_type]
+	
+	force += attraction
 	
 	return direction * force

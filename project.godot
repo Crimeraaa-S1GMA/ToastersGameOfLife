@@ -144,6 +144,10 @@ random={
 2d_physics/layer_1="Particle"
 3d_physics/layer_1="Particle"
 
+[mono]
+
+project/assembly_name="Toaster's Game Of Life"
+
 [physics]
 
 common/enable_pause_aware_picking=true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/Particle3D.gd" type="Script" id=1]
+[ext_resource path="res://src/Particle3D.cs" type="Script" id=1]
 
 [sub_resource type="SphereMesh" id=5]
 
