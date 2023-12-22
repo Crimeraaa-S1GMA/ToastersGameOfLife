@@ -21,7 +21,7 @@ public class Simulation : Node2D
         simulationManager.particles.Clear();
 
         for(int i = 0; i < simulationManager.particleTypes; i++) {
-            for(int j = 0; j < 200 / simulationManager.particleTypes; j++) {
+            for(int j = 0; j < 100 / simulationManager.particleTypes; j++) {
                 Particle particleInstance = (Particle)particle.Instance();
 
                 particleInstance.type = Convert.ToUInt32(i);
