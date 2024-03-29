@@ -9,7 +9,7 @@ onready var slider : HSlider = $HSlider
 func _ready():
 	get_value_from_settings()
 	
-	SimulationManager.connect("on_rule_update", self, "get_value_from_settings")
+	SimulationManager.connect("OnRuleUpdate", self, "get_value_from_settings")
 
 func get_value_from_settings() -> void:
 	slider.value = SimulationManager.rules[from][to]

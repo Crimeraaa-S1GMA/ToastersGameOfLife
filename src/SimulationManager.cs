@@ -7,7 +7,7 @@ public class SimulationManager : Node2D
     [Signal]
     delegate void OnRuleUpdate();
 
-    public double[,] rules;
+    public Dictionary rules = new Dictionary {};
 
     public int particleTypes = 10;
 
@@ -47,11 +47,13 @@ public class SimulationManager : Node2D
     }
 
     void NewRules() {
-        rules = new double[particleTypes, particleTypes];
+
+        // rules = new double[particleTypes, particleTypes];
 
         for(int i = 0; i < particleTypes; i++) {
+            rules[i] = new Dictionary {};
             for(int j = 0; j < particleTypes; j++) {
-                rules[i, j] = i == j ? GD.RandRange(-3.0, -1.0) : GD.RandRange(-10.0, 10.0);
+                ((Dictionary)rules[i])[j] = i == j ? GD.RandRange(-3.0, -1.0) : GD.RandRange(-10.0, 10.0);
             }
         }
     }

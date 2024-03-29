@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/Simulation.cs" type="Script" id=1]
+[ext_resource path="res://src/Simulation.gd" type="Script" id=1]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=2]
 
 [node name="Simulation" type="Node2D"]

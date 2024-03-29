@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public class Particle : Node2D
@@ -8,6 +9,10 @@ public class Particle : Node2D
 
 	public override void _Ready()
 	{
+		SimulationManager simulationManager = (SimulationManager)GetNode("/root/SimulationManager");
+
+		simulationManager.particles.Add(this);
+
 		GD.Randomize();
 	}
 
@@ -23,6 +28,7 @@ public class Particle : Node2D
 			// }
 
 			Translate(velocity * delta);
+			Translate(Vector2.Right * 20 * delta);
 		}
 
 		foreach(Particle particle in simulationManager.particles) {
@@ -47,7 +53,7 @@ public class Particle : Node2D
 
 		particleForce = Mathf.Min((distance - 20) * 3, 0);
 
-		float attraction = Mathf.Max((Mathf.Abs(distance - 50) * -0.5f) + 15, 0) * Convert.ToSingle(simulationManager.rules[type, foreignType]);
+		float attraction = Mathf.Max((Mathf.Abs(distance - 50) * -0.5f) + 15, 0) * Convert.ToSingle(((Dictionary)simulationManager.rules[type])[foreignType]);
 
 		particleForce += attraction;
 

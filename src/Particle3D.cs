@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public class Particle3D : Area
@@ -8,10 +9,11 @@ public class Particle3D : Area
 
 	public override void _Ready()
 	{
-		GD.Randomize();
+		SimulationManager simulationManager = (SimulationManager)GetNode("/root/SimulationManager");
 
-		Connect("area_entered", this, "Enter");
-		Connect("area_exited", this, "Exit");
+		simulationManager.particles3d.Add(this);
+
+		GD.Randomize();
 	}
 
 	public override void _Process(float delta)
@@ -48,7 +50,7 @@ public class Particle3D : Area
 
 		particleForce = Mathf.Min((distance - 20) * 3, 0);
 
-		float attraction = Mathf.Max((Mathf.Abs(distance - 50) * -0.5f) + 15, 0) * Convert.ToSingle(simulationManager.rules[type, foreignType]);
+		float attraction = Mathf.Max((Mathf.Abs(distance - 50) * -0.5f) + 15, 0) * Convert.ToSingle(((Dictionary)simulationManager.rules[type])[foreignType]);
 
 		// // var attraction : float = max((abs(distance - 50) * -0.5) + 15, 0) * SimulationManager.rules[type][foreign_type]
 
@@ -57,11 +59,5 @@ public class Particle3D : Area
 		particleForce += attraction;
 
 		return direction * particleForce;
-	}
-
-	void Enter(Area2D area) {
-	}
-
-	void Exit(Area2D area) {
 	}
 }

@@ -8,22 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Area2D",
-"class": "Particle",
-"language": "GDScript",
-"path": "res://src/Particle.gd"
-}, {
-"base": "Area",
-"class": "Particle3D",
-"language": "GDScript",
-"path": "res://src/Particle3D.gd"
-} ]
-_global_script_class_icons={
-"Particle": "",
-"Particle3D": ""
-}
-
 [application]
 
 config/name="Toaster's Game Of Life"
